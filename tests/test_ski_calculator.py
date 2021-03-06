@@ -3,11 +3,10 @@ from ski_calculator.calculator import Skier, calculate_ski_length
 
 
 @pytest.mark.parametrize('length, age, style, expected', [
-#        Length, Age, Style,            Expected Value
-        (80,     4,   Skier.classic,    80),
-        (80,     5,   Skier.classic,    90),
-        (80,     10,  Skier.classic,    100),
-        (80,     10,  Skier.free_style, 90),
+        (80,     4,   Skier.classic,    (80, 80)),
+        (80,     5,   Skier.classic,    (90, 100)),
+        (80,     10,  Skier.classic,    (100, 100)),
+        (80,     10,  Skier.free_style, (90, 95)),
 ])
 
 def test_calculate_ski_length(length, age, style, expected):

@@ -9,10 +9,10 @@ class Skier:
 
 def calculate_ski_length(skier):
     if skier.age <= 4:
-        return skier.length
+        return (skier.length, skier.length)
     if skier.age <= 8:
-        return skier.length + 10
+        return (skier.length + 10, skier.length + 20)
     if skier.style == Skier.classic:
-        return skier.length + 20
+        return (skier.length + 20, skier.length + 20)
     if skier.style == Skier.free_style:
-        return skier.length + 10
+        return (skier.length + 10, skier.length + 15)
