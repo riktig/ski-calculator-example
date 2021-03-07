@@ -22,7 +22,7 @@ class SkiRequestHandler(BaseHTTPRequestHandler):
         skier = create_skier(json_data)
         ski_length = calculate_ski_length(skier)
 
-        response = create_response_json(ski_length)
+        response = create_response_json(*ski_length)
         self._send_success_response(response)
 
 
@@ -34,8 +34,15 @@ def create_skier(json_data):
     return Skier(json_data["length"], json_data["age"], json_data["style"])
 
 
-def create_response_json(ski_length):
-    return json.dumps({'ski_length': ski_length})
+def create_response_json(ski_length_low, ski_length_high):
+    if ski_length_low == ski_length_high:
+        return json.dumps({'ski_length': ski_length_low})
+    else:
+        return json.dumps(
+            {
+                'ski_length_low': ski_length_low,
+                'ski_length_high': ski_length_high,
+            })
 
 
 def main():
