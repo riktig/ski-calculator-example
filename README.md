@@ -4,6 +4,7 @@
 ```bash
 sudo apt update
 sudo apt install python3-dev python3-pip python3-setuptools
+git clone https://github.com/riktig/ski-calculator-example.git && cd ski-calculator-example
 pip install -e .
 ```
 
