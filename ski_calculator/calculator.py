@@ -7,7 +7,7 @@ class Skier:
     classic = 'classic'
     freestyle = 'freestyle'
 
-_MAX_CLASSIC_SKI_LENGTH = 207
+_MAX_SUPPORTED_CLASSIC_SKI_LENGTH = 207
 
 def calculate_ski_length(skier):
     if skier.age <= 4:
@@ -28,9 +28,9 @@ def _calculate_child_ski_length(skier):
 
 def _calculate_classic_ski_length(skier):
     ski_length_min, ski_length_max = (skier.length + 20, skier.length + 20)
-    if ski_length_max > _MAX_CLASSIC_SKI_LENGTH:
+    if ski_length_max > _MAX_SUPPORTED_CLASSIC_SKI_LENGTH:
         raise ValueError(f"Calculated classic ski length is {ski_length_max}, "
-                          "max supported length is {_MAX_CLASSIC_SKI_LENGTH}")
+                          "max supported length is {_MAX_SUPPORTED_CLASSIC_SKI_LENGTH}")
     return ski_length_min, ski_length_max
 
 def _calculate_freestyle_ski_length(skier):
