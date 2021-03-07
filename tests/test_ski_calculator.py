@@ -13,15 +13,15 @@ from ski_calculator.calculator import Skier, calculate_ski_length
 def test_calculate_ski_length(length, age, style, expected):
     skier = Skier(length, age, style)
     ski_length = calculate_ski_length(skier)
-    assert expected == ski_length
+    assert ski_length == expected
 
 
 @pytest.mark.parametrize('length, age, style', [
-        (188,     30,   Skier.classic), # Skier too long
+        (188,     30,   Skier.classic), # Skier too tall
         (180,     30,   "Invalid Ski Type"),
 ])
 
 def test_calculate_ski_length_value_error(length, age, style):
     skier = Skier(length, age, style)
     with pytest.raises(ValueError):
-        ski_length = calculate_ski_length(skier)
+        calculate_ski_length(skier)
