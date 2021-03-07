@@ -4,6 +4,7 @@ import json
 from .calculator import Skier, calculate_ski_length
 
 
+#TODO http.server is not recommended for production. It only implements basic security checks.
 class SkiRequestHandler(BaseHTTPRequestHandler):
     def _send_success_response(self, response):
         self.send_response(200)
@@ -15,6 +16,7 @@ class SkiRequestHandler(BaseHTTPRequestHandler):
         content_length = int(self.headers['Content-Length'])
         return self.rfile.read(content_length)
 
+    #TODO add error handling
     def do_POST(self):
         post_data = self._get_post_data()
         json_data = load_json(post_data)
@@ -27,6 +29,7 @@ class SkiRequestHandler(BaseHTTPRequestHandler):
 
 
 def load_json(data):
+    #TODO use json schema or something similar to validate json
     return json.loads(data)
 
 
