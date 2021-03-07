@@ -17,7 +17,7 @@ def test_calculate_ski_length(length, age, style, expected):
 
 
 @pytest.mark.parametrize('length, age, style', [
-        (198,     30,   Skier.classic), # Skier too long
+        (188,     30,   Skier.classic), # Skier too long
         (180,     30,   "Invalid Ski Type"),
 ])
 
