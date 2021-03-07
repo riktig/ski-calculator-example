@@ -37,14 +37,14 @@ def create_skier(json_data):
     return Skier(json_data["length"], json_data["age"], json_data["style"])
 
 
-def create_response_json(ski_length_low, ski_length_high):
-    if ski_length_low == ski_length_high:
-        return json.dumps({'ski_length': ski_length_low})
+def create_response_json(ski_length_min, ski_length_max):
+    if ski_length_min == ski_length_max:
+        return json.dumps({'ski_length': ski_length_min})
     else:
         return json.dumps(
             {
-                'ski_length_low': ski_length_low,
-                'ski_length_high': ski_length_high,
+                'ski_length_min': ski_length_min,
+                'ski_length_max': ski_length_max,
             })
 
 

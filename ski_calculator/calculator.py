@@ -27,11 +27,11 @@ def _calculate_child_ski_length(skier):
     return (skier.length + 10, skier.length + 20)
 
 def _calculate_classic_ski_length(skier):
-    ski_length = (skier.length + 20, skier.length + 20)
-    if ski_length[1] > _MAX_CLASSIC_SKI_LENGTH:
-        raise ValueError(f"Classic ski length is {ski_length}, "
+    ski_length_min, ski_length_max = (skier.length + 20, skier.length + 20)
+    if ski_length_max > _MAX_CLASSIC_SKI_LENGTH:
+        raise ValueError(f"Calculated classic ski length is {ski_length_max}, "
                           "max supported length is {_MAX_CLASSIC_SKI_LENGTH}")
-    return ski_length
+    return ski_length_min, ski_length_max
 
 def _calculate_freestyle_ski_length(skier):
     return (skier.length + 10, skier.length + 15)
